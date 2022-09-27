@@ -8,15 +8,18 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      packages: write
       contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: 14
           registry-url: https://npm.pkg.github.com/
+          scope: "@name"
+      - run: node gpr-hack.js
       - run: npm ci
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
