@@ -4,16 +4,19 @@ on:
     branches:
       - main
 jobs:
-  publish:
+  publish-gpr:
+    needs: build
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
-      - uses: actions/checkout@v2
-      # Add your test steps here if needed...
-      - name: Build container
-        uses: docker/build-push-action@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          username: vanceingalls
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: vanceingalls/publish-package-skill
-          tag_with_sha: true
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
