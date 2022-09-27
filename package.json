@@ -1,6 +1,6 @@
 {
   "name": "publish-package-skill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": "git@github.com:vanceingalls/publish-package-skill.git",
   "author": "Vance Ingalls <vance@stardust.gg>",
