@@ -1,0 +1,11 @@
+{
+  "name": "publish-package-skill",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:vanceingalls/publish-package-skill.git",
+  "author": "Vance Ingalls <vance@stardust.gg>",
+  "license": "MIT",
+  "publishConfig": {
+    "@vanceingalls:registry": "https://npm.pkg.github.com"
+  }
+}
