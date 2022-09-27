@@ -1,5 +1,5 @@
 {
-  "name": "publish-package-skill",
+  "name": "@vanceingalls/publish-package-skill",
   "version": "1.0.1",
   "main": "index.js",
   "repository": "git@github.com:vanceingalls/publish-package-skill.git",
